@@ -5,7 +5,7 @@ export default function Home({projects}) {
   return (
     <div className="flex flex-col items-center justify-center">
       {projects.map((project)=> (
-        <a href={`/projects/${project.projectId.current}`} className="hover:bg-gray-300 flex m-4 w-full max-w-2xl bg-gray-100">
+        <a key={project.projectIf} href={`/projects/${project.projectId.current}`} className="hover:bg-gray-300 flex m-4 w-full max-w-2xl bg-gray-100">
             <img className="max-w-xs" src={project.map} />
             <div className="p-4 pl-8 w-full flex-grow flex flex-col justify-center">
               <h1 className="text-6xl font-bold">{project?.projectId.current}</h1>
