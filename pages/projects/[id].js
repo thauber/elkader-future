@@ -1,4 +1,5 @@
 import client from '../../client';
+import Image from 'next/image'
 
 const Project = ({project}) => {
   return (
@@ -15,14 +16,14 @@ const Project = ({project}) => {
             <h4 className="pt-4 font-bold">Notes</h4>
             <p>{project?.notes || "None"}</p>
           </div>
-          <img className="w-3/4 pl-10" src={project?.map} />
+          <img layout="fill" className="w-3/4 pl-10" src={project?.map} />
         </div>
         <div className="w-3/4 self-end">
           <div className="text-lg mb-4 border-b border-gray-300 ml-10">SOLUTIONS</div>
           {project?.solutions?.map((solution)=>(
             <div className="odd:bg-gray-100 p-4 ml-6" key={solution._id}>
               <h4 className="text-xs">{solution.type}</h4>
-              <div className="flex">
+              <div className="flex w-full">
                 <div className="flex-grow">
                   <h4 className="font-bold">{solution.estimated ? `Estimated cost (as of ${solution.estimated})` : 'Projected Cost'}</h4>
                   <h2 className="text-4xl font-bold">{solution.cost ? "$"+Intl.NumberFormat("en-US").format(solution.cost) : 'Unknown Cost'}</h2>
@@ -33,7 +34,7 @@ const Project = ({project}) => {
                   }
                 </div>
                 { solution.work 
-                ? <div className="text-sm pr-10">
+                ? <div className="text-sm pr-10 min-w-1c">
                     <h4 className="font-bold">
                       Project Details
                     </h4>
